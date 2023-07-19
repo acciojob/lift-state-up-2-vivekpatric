@@ -1,13 +1,25 @@
 
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
+//import { event } from "cypress/types/jquery";
+import Child from "./Child";
 
-const App = () => {
+function App  ()  {
+  const [ inputValue,setName] = useState("");
+  const handleInput = (event)=> {
+    setName(event.target.value);
+  };
   return (
-    <div>
-        {/* Do not remove the main div */}
+    <div className="parent">
+        <h1>Parent Component</h1>
+        {inputValue}
+        <Child
+
+        inputValue={inputValue}
+        handleInput={handleInput}
+        />
     </div>
-  )
+  );
 }
 
 export default App
